@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - GeoExpert</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="google-reviews.js"></script>
+    <script src="contact-form.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">GeoExpert</a>
+            <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Strona Główna</a></li>
+                    <li><a href="o-nas.html" class="nav-link">O Nas</a></li>
+                    <li><a href="uslugi.html" class="nav-link">Usługi</a></li>
+                    <li><a href="realizacje.html" class="nav-link">Realizacje</a></li>
+                    <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Skontaktuj Się z Nami</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Strona Główna</a></li>
+                <li>Kontakt</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h3>Adres</h3>
+                            <p>ul. Przykładowa 123<br>00-000 Warszawa</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h3>Telefon</h3>
+                            <p>+48 123 456 789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>biuro@geoexpert.pl</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-text">
+                            <h3>Godziny pracy</h3>
+                            <p>Poniedziałek - Piątek: 8:00 - 16:00<br>Weekend: Zamknięte</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-text">
+                            <h3>Media Społecznościowe</h3>
+                            <div class="social-links" style="margin-top: 10px;">
+                                <a href="#" class="social-link">f</a>
+                                <a href="#" class="social-link">t</a>
+                                <a href="#" class="social-link">in</a>
+                                <a href="#" class="social-link">ig</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background-color: var(--light-color); border-radius: 8px;">
+                        <h3 style="margin-bottom: 15px; color: var(--secondary-color);">Szybki kontakt</h3>
+                        <p style="margin-bottom: 15px;">Potrzebujesz natychmiastowej odpowiedzi? Zadzwoń do nas lub skorzystaj z czatu online.</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="tel:+48123456789" class="btn">Zadzwoń teraz</a>
+                            <a href="#" class="btn btn-secondary" id="openChatBtn">Czat online</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px; color: var(--secondary-color);">Wyślij wiadomość</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Imię i nazwisko*</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email*</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefon</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Temat*</label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="">-- Wybierz temat --</option>
+                                <option value="mapy">Mapy do celów projektowych</option>
+                                <option value="tyczenie">Tyczenie obiektów</option>
+                                <option value="inwentaryzacje">Inwentaryzacje powykonawcze</option>
+                                <option value="podzialy">Podziały nieruchomości</option>
+                                <option value="obsluga">Obsługa inwestycji</option>
+                                <option value="wycena">Prośba o wycenę</option>
+                                <option value="inne">Inne</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location" class="form-label">Lokalizacja inwestycji</label>
+                            <input type="text" id="location" name="location" class="form-control" placeholder="Miejscowość, gmina lub adres">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="deadline" class="form-label">Preferowany termin realizacji</label>
+                            <input type="date" id="deadline" name="deadline" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Wiadomość*</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="attachment" class="form-label">Załącznik (opcjonalnie)</label>
+                            <input type="file" id="attachment" name="attachment" class="form-control">
+                            <small style="display: block; margin-top: 5px; color: #777;">Możesz załączyć dokument, zdjęcie lub mapę (max. 10MB)</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                <input type="checkbox" id="privacy" required style="width: auto; margin-top: 5px;">
+                                <label for="privacy" style="margin-bottom: 0; font-size: 0.9rem;">
+                                    Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z 
+                                    <a href="#" style="text-decoration: underline;">polityką prywatności</a>.
+                                    Administratorem danych jest firma GeoExpert Sp. z o.o.*
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                <input type="checkbox" id="marketing" style="width: auto; margin-top: 5px;">
+                                <label for="marketing" style="margin-bottom: 0; font-size: 0.9rem;">
+                                    Wyrażam zgodę na otrzymywanie od GeoExpert Sp. z o.o. informacji handlowych 
+                                    drogą elektroniczną zgodnie z ustawą o świadczeniu usług drogą elektroniczną.
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <p style="font-size: 0.9rem; color: #777; margin-bottom: 15px;">* pola wymagane</p>
+                            <button type="submit" class="btn" style="width: 100%;">Wyślij wiadomość</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <section id="location" class="section">
+                <div class="container" style="text-align: center;">
+                  <h2 class="section-title">Nasza Lokalizacja</h2>
+                  
+                  <div style="width: 100%; max-width: 800px; margin: 0 auto;">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2491.3785867973743!2d19.15575371317306!3d51.35933652139019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a13135c18dd4d%3A0xc8bbb25890dd5d58!2sAzymut%20MT!5e0!3m2!1spl!2spl!4v1742052876763!5m2!1spl!2spl" 
+                      width="100%" 
+                      height="450" 
+                      style="border:0;" 
+                      allowfullscreen="" 
+                      loading="lazy" 
+                      referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                  </div>
+                </div>
+              </section>
+            
+            <!-- Google Reviews Section -->
+            <div style="margin-top: 80px;">
+                <h2 class="section-title">Opinie Naszych Klientów</h2>
+                <div class="testimonial-slider">
+                    <!-- Tutaj będą ładowane opinie z Google poprzez JavaScript -->
+                    <div class="testimonial-item active">
+                        <div class="testimonial-image">
+                            <img src="/api/placeholder/100/100" alt="Klient">
+                        </div>
+                        <p class="testimonial-text">
+                            "Firma GeoExpert wykonała dla naszej firmy budowlanej kompleksową obsługę geodezyjną 
+                            przy budowie osiedla mieszkaniowego. Wszystkie prace zostały zrealizowane terminowo,
+                            z najwyższą starannością i dokładnością. Polecam!"
+                        </p>
+                        <h4 class="testimonial-name">Jan Kowalski</h4>
+                        <p class="testimonial-position">Dyrektor, Firma Budowlana ABC</p>
+                    </div>
+                    
+                    <div class="testimonial-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 80px;">
+                <h2 class="section-title">Często Zadawane Pytania</h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--secondary-color); margin-bottom: 10px;">Jak długo trwa wykonanie mapy do celów projektowych?</h3>
+                        <p>
+                            Standardowy czas realizacji mapy do celów projektowych wynosi od 7 do 14 dni roboczych,
+                            w zależności od wielkości obszaru i stopnia skomplikowania terenu. W przypadkach pilnych
+                            oferujemy również realizację ekspresową w terminie 3-5 dni roboczych (za dopłatą).
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--secondary-color); margin-bottom: 10px;">Jaki jest koszt usług geodezyjnych?</h3>
+                        <p>
+                            Koszt usług geodezyjnych zależy od wielu czynników, takich jak rodzaj usługi, wielkość
+                            obszaru, stopień skomplikowania terenu, lokalizacja czy termin realizacji. Każde zlecenie
+                            wyceniamy indywidualnie po dokładnym zapoznaniu się z zakresem prac. Zachęcamy do kontaktu
+                            w celu uzyskania bezpłatnej wyceny.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--secondary-color); margin-bottom: 10px;">Czy działacie na terenie całej Polski?</h3>
+                        <p>
+                            Nasza firma prowadzi działalność przede wszystkim na terenie województwa Łódzkiego.
+                            W przypadku większych zleceń lub stałej współpracy możemy również realizować projekty
+                            w innych częściach kraju. Każdy przypadek rozpatrujemy indywidualnie.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--secondary-color); margin-bottom: 10px;">Jakie dokumenty są potrzebne do zlecenia prac geodezyjnych?</h3>
+                        <p>
+                            Dokumenty potrzebne do zlecenia prac zależą od rodzaju usługi. W większości przypadków
+                            wymagany jest dokument potwierdzający prawo do dysponowania nieruchomością (np. akt własności,
+                            umowa dzierżawy). W przypadku niektórych prac mogą być potrzebne również inne dokumenty, 
+                            jak np. wypis z rejestru gruntów, decyzje administracyjne czy opinie techniczne.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section services">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <h2 class="section-title">Potrzebujesz więcej informacji?</h2>
+            <p style="margin-bottom: 30px;">
+                Jeśli nie znalazłeś odpowiedzi na swoje pytanie, skontaktuj się z nami telefonicznie
+                lub odwiedź nasze biuro. Nasi specjaliści z przyjemnością udzielą Ci szczegółowych informacji.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+48123456789" class="btn">Zadzwoń teraz: +48 123 456 789</a>
+                <a href="mailto:biuro@geoexpert.pl" class="btn btn-secondary">Wyślij email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>GeoExpert</h3>
+                    <p>
+                        Profesjonalne usługi geodezyjne dla klientów indywidualnych, firm 
+                        i instytucji. Działamy na terenie całego województwa od 2005 roku.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">t</a>
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">ig</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Usługi</h3>
+                    <ul class="footer-links">
+                        <li><a href="mapy-do-celow-projektowych.html">Mapy do celów projektowych</a></li>
+                        <li><a href="tyczenie-obiektow.html">Tyczenie obiektów</a></li>
+                        <li><a href="inwentaryzacje-powykonawcze.html">Inwentaryzacje powykonawcze</a></li>
+                        <li><a href="uslugi.html">Wszystkie usługi</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Szybkie linki</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Strona Główna</a></li>
+                        <li><a href="o-nas.html">O Nas</a></li>
+                        <li><a href="uslugi.html">Usługi</a></li>
+                        <li><a href="realizacje.html">Realizacje</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <p>ul. Przykładowa 123<br>00-000 Warszawa</p>
+                    <p>Tel: +48 123 456 789<br>Email: biuro@geoexpert.pl</p>
+                    <p>Pon-Pt: 8:00 - 16:00</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 GeoExpert. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">↑</div>
+
+    <!-- Chat Widget (symulacja) -->
+    <div id="chatWidget" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: none;">
+        <div style="background-color: var(--secondary-color); color: white; padding: 15px; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; font-size: 1rem;">Czat z konsultantem</h3>
+            <button id="closeChatBtn" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.2rem;">&times;</button>
+        </div>
+        <div style="background-color: white; border: 1px solid #ddd; border-top: none; height: 300px; width: 300px; padding: 15px; overflow-y: auto; border-radius: 0 0 8px 8px;">
+            <div style="margin-bottom: 15px;">
+                <div style="background-color: #f1f1f1; padding: 10px; border-radius: 8px; display: inline-block; max-width: 80%;">
+                    <p style="margin: 0; font-size: 0.9rem;">Witaj! W czym mogę Ci pomóc?</p>
+                </div>
+            </div>
+            <div id="chatMessages"></div>
+            <div style="position: absolute; bottom: 15px; left: 15px; right: 15px; display: flex; gap: 10px;">
+                <input type="text" id="chatInput" placeholder="Napisz wiadomość..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                <button id="sendChatBtn" style="background-color: var(--primary-color); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Wyślij</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skrypty -->
+    <script src="script.js"></script>
+    <script src="google-reviews.js"></script>
+    <script src="contact-form.js"></script>
+    
+    <!-- Skrypt obsługi czatu (symulacja) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatWidget = document.getElementById('chatWidget');
+            const openChatBtn = document.getElementById('openChatBtn');
+            const closeChatBtn = document.getElementById('closeChatBtn');
+            const chatInput = document.getElementById('chatInput');
+            const sendChatBtn = document.getElementById('sendChatBtn');
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Otwieranie czatu
+            openChatBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                chatWidget.style.display = 'block';
+            });
+            
+            // Zamykanie czatu
+            closeChatBtn.addEventListener('click', function() {
+                chatWidget.style.display = 'none';
+            });
+            
+            // Wysyłanie wiadomości
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    // Dodaj wiadomość użytkownika
+                    const userMessageDiv = document.createElement('div');
+                    userMessageDiv.style.marginBottom = '15px';
+                    userMessageDiv.style.textAlign = 'right';
+                    
+                    const userMessageContent = document.createElement('div');
+                    userMessageContent.style.backgroundColor = 'var(--primary-color)';
+                    userMessageContent.style.color = 'white';
+                    userMessageContent.style.padding = '10px';
+                    userMessageContent.style.borderRadius = '8px';
+                    userMessageContent.style.display = 'inline-block';
+                    userMessageContent.style.maxWidth = '80%';
+                    
+                    const userMessageText = document.createElement('p');
+                    userMessageText.style.margin = '0';
+                    userMessageText.style.fontSize = '0.9rem';
+                    userMessageText.textContent = message;
+                    
+                    userMessageContent.appendChild(userMessageText);
+                    userMessageDiv.appendChild(userMessageContent);
+                    chatMessages.appendChild(userMessageDiv);
+                    
+                    // Wyczyść pole wprowadzania
+                    chatInput.value = '';
+                    
+                    // Symulacja odpowiedzi po krótkim opóźnieniu
+                    setTimeout(function() {
+                        const botMessageDiv = document.createElement('div');
+                        botMessageDiv.style.marginBottom = '15px';
+                        
+                        const botMessageContent = document.createElement('div');
+                        botMessageContent.style.backgroundColor = '#f1f1f1';
+                        botMessageContent.style.padding = '10px';
+                        botMessageContent.style.borderRadius = '8px';
+                        botMessageContent.style.display = 'inline-block';
+                        botMessageContent.style.maxWidth = '80%';
+                        
+                        const botMessageText = document.createElement('p');
+                        botMessageText.style.margin = '0';
+                        botMessageText.style.fontSize = '0.9rem';
+                        botMessageText.textContent = 'Dziękuję za wiadomość. Nasz konsultant skontaktuje się z Tobą wkrótce. Możesz też zadzwonić do nas pod numer +48 123 456 789.';
+                        
+                        botMessageContent.appendChild(botMessageText);
+                        botMessageDiv.appendChild(botMessageContent);
+                        chatMessages.appendChild(botMessageDiv);
+                    }, 1000);
+                }
+            }
+            
+            // Obsługa przycisku wysyłania
+            sendChatBtn.addEventListener('click', sendMessage);
+            
+            // Obsługa klawisza Enter
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+    
+    <!-- W rzeczywistej implementacji tutaj byłby kod integracyjny z Google Reviews API -->
+    <!-- Na przykład:
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    -->
+</body>
+</html>
