@@ -114,7 +114,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://raw.githubusercontent.com/cosmo60/azymutmt.github.pl/main/stronazdj/mapa.webp" alt="Mapy do celów projektowych">
+                        <img src="https://raw.githubusercontent.com/cosmo60/azymutmt.github.pl/refs/heads/main/stronazdj/mapadocelowproj.jpg" alt="Mapy do celów projektowych">
                         <!-- Zdjęcie mapy geodezyjnej -->
                     </div>
                     <div class="service-content">
@@ -128,15 +128,27 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://raw.githubusercontent.com/cosmo60/azymutmt.github.pl/main/stronazdjpedalynamoscie.jpeg" alt="Tyczenie obiektów">
-                        <!-- Zdjęcie geodety podczas tyczenia obiektu -->
+                    <div class="service-image video-container">
+                        <!-- Video element z preload="metadata" dla szybkiego ładowania -->
+                        <video id="tyczenie-video" playsinline muted loop preload="metadata" poster="">
+                            <!-- Format WebM dla nowoczesnych przeglądarek (lżejszy) -->
+                            <source src="https://github.com/cosmo60/azymutmt.github.pl/raw/refs/heads/main/stronazdj/filmik.webm" type="video/webm">
+                            <!-- Format MP4 jako fallback dla starszych przeglądarek -->
+                            <source src="https://github.com/cosmo60/azymutmt.github.pl/raw/refs/heads/main/stronazdj/filmik.mp4 " type="video/mp4">
+                            <!-- Obraz jako ostateczny fallback -->
+                            <img src="/api/placeholder/400/200" alt="Tyczenie obiektów">
+                        </video>
+                        <!-- Przycisk play -->
+                        <button class="video-play-button">
+                            <span>▶</span>
+                        </button>
                     </div>
                     <div class="service-content">
                         <h3 class="service-title">Tyczenie obiektów</h3>
                         <p class="service-description">
-                            Wykonujemy precyzyjne tyczenie budynków, dróg i innych obiektów budowlanych
-                            zgodnie z projektem, zapewniając ich prawidłowe umiejscowienie.
+                            Wykonujemy precyzyjne tyczenie budynków i innych obiektów budowlanych zgodnie
+                            z zatwierdzonym projektem. Usługa obejmuje wyznaczenie osi, narożników i innych
+                            charakterystycznych punktów w terenie.
                         </p>
                         <a href="tyczenie-obiektow.html" class="btn">Dowiedz się więcej</a>
                     </div>
@@ -144,7 +156,7 @@
                 
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://raw.githubusercontent.com/cosmo60/azymutmt.github.pl/main/stronazdj/inw.jpg" alt="Inwentaryzacje powykonawcze">
+                        <img src="https://raw.githubusercontent.com/cosmo60/azymutmt.github.pl/refs/heads/main/stronazdj/inwopowyk.jpg" alt="Inwentaryzacje powykonawcze">
                         <!-- Zdjęcie pomiaru powykonawczego budynku -->
                     </div>
                     <div class="service-content">
