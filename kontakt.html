@@ -93,7 +93,7 @@
                     
                     <div style="margin-top: 30px; padding: 20px; background-color: var(--light-color); border-radius: 8px;">
                         <h3 style="margin-bottom: 15px; color: var(--secondary-color);">Szybki kontakt</h3>
-                        <p style="margin-bottom: 15px;">Potrzebujesz natychmiastowej odpowiedzi? Zadzwoń do nas lub skorzystaj z czatu online.</p>
+                        <p style="margin-bottom: 15px;">Potrzebujesz natychmiastowej odpowiedzi? Zadzwoń do nas.</p>
                         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                             <a href="tel:+48609297914" class="btn">Zadzwoń teraz</a>
                         </div>
@@ -269,6 +269,7 @@
                 <div class="footer-col">
                     <h3>Azymut MT</h3>
                     <p>
+                        <br/>
                         Profesjonalne usługi geodezyjne dla klientów indywidualnych, firm 
                         i instytucji. Działamy na terenie całego województwa od 1999 roku.
                     </p>
@@ -314,114 +315,14 @@
     <div class="back-to-top">↑</div>
 
     <!-- Chat Widget (symulacja) -->
-    <div id="chatWidget" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: none;">
-        <div style="background-color: var(--secondary-color); color: white; padding: 15px; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="margin: 0; font-size: 1rem;">Czat z konsultantem</h3>
-            <button id="closeChatBtn" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.2rem;">&times;</button>
-        </div>
-        <div style="background-color: white; border: 1px solid #ddd; border-top: none; height: 300px; width: 300px; padding: 15px; overflow-y: auto; border-radius: 0 0 8px 8px;">
-            <div style="margin-bottom: 15px;">
-                <div style="background-color: #f1f1f1; padding: 10px; border-radius: 8px; display: inline-block; max-width: 80%;">
-                    <p style="margin: 0; font-size: 0.9rem;">Witaj! W czym mogę Ci pomóc?</p>
-                </div>
-            </div>
-            <div id="chatMessages"></div>
-            <div style="position: absolute; bottom: 15px; left: 15px; right: 15px; display: flex; gap: 10px;">
-                <input type="text" id="chatInput" placeholder="Napisz wiadomość..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-                <button id="sendChatBtn" style="background-color: var(--primary-color); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Wyślij</button>
-            </div>
-        </div>
-    </div>
+   
 
     <!-- Skrypty -->
     <script src="script.js"></script>
     <script src="google-reviews.js"></script>
     <script src="contact-form.js"></script>
     
-    <!-- Skrypt obsługi czatu (symulacja) -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatWidget = document.getElementById('chatWidget');
-            const openChatBtn = document.getElementById('openChatBtn');
-            const closeChatBtn = document.getElementById('closeChatBtn');
-            const chatInput = document.getElementById('chatInput');
-            const sendChatBtn = document.getElementById('sendChatBtn');
-            const chatMessages = document.getElementById('chatMessages');
-            
-            // Otwieranie czatu
-            openChatBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                chatWidget.style.display = 'block';
-            });
-            
-            // Zamykanie czatu
-            closeChatBtn.addEventListener('click', function() {
-                chatWidget.style.display = 'none';
-            });
-            
-            // Wysyłanie wiadomości
-            function sendMessage() {
-                const message = chatInput.value.trim();
-                if (message) {
-                    // Dodaj wiadomość użytkownika
-                    const userMessageDiv = document.createElement('div');
-                    userMessageDiv.style.marginBottom = '15px';
-                    userMessageDiv.style.textAlign = 'right';
-                    
-                    const userMessageContent = document.createElement('div');
-                    userMessageContent.style.backgroundColor = 'var(--primary-color)';
-                    userMessageContent.style.color = 'white';
-                    userMessageContent.style.padding = '10px';
-                    userMessageContent.style.borderRadius = '8px';
-                    userMessageContent.style.display = 'inline-block';
-                    userMessageContent.style.maxWidth = '80%';
-                    
-                    const userMessageText = document.createElement('p');
-                    userMessageText.style.margin = '0';
-                    userMessageText.style.fontSize = '0.9rem';
-                    userMessageText.textContent = message;
-                    
-                    userMessageContent.appendChild(userMessageText);
-                    userMessageDiv.appendChild(userMessageContent);
-                    chatMessages.appendChild(userMessageDiv);
-                    
-                    // Wyczyść pole wprowadzania
-                    chatInput.value = '';
-                    
-                    // Symulacja odpowiedzi po krótkim opóźnieniu
-                    setTimeout(function() {
-                        const botMessageDiv = document.createElement('div');
-                        botMessageDiv.style.marginBottom = '15px';
-                        
-                        const botMessageContent = document.createElement('div');
-                        botMessageContent.style.backgroundColor = '#f1f1f1';
-                        botMessageContent.style.padding = '10px';
-                        botMessageContent.style.borderRadius = '8px';
-                        botMessageContent.style.display = 'inline-block';
-                        botMessageContent.style.maxWidth = '80%';
-                        
-                        const botMessageText = document.createElement('p');
-                        botMessageText.style.margin = '0';
-                        botMessageText.style.fontSize = '0.9rem';
-                        botMessageText.textContent = 'Dziękuję za wiadomość. Nasz konsultant skontaktuje się z Tobą wkrótce. Możesz też zadzwonić do nas pod numer +48 609 297 914.';
-                        
-                        botMessageContent.appendChild(botMessageText);
-                        botMessageDiv.appendChild(botMessageContent);
-                        chatMessages.appendChild(botMessageDiv);
-                    }, 1000);
-                }
-            }
-            
-            // Obsługa przycisku wysyłania
-            sendChatBtn.addEventListener('click', sendMessage);
-            
-            // Obsługa klawisza Enter
-            chatInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-        });
+    
     </script>
     
 

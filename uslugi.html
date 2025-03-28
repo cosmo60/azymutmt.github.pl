@@ -63,9 +63,20 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-image">
-                        <img src="/api/placeholder/400/200" alt="Tyczenie obiektów">
-                        <!-- Zdjęcie geodety podczas tyczenia obiektu -->
+                    <div class="service-image video-container">
+                        <!-- Video element z preload="metadata" dla szybkiego ładowania -->
+                        <video id="tyczenie-video" playsinline muted loop preload="metadata" poster="/api/placeholder/400/200">
+                            <!-- Format WebM dla nowoczesnych przeglądarek (lżejszy) -->
+                            <source src="sciezka/do/twojego/filmiku.webm" type="video/webm">
+                            <!-- Format MP4 jako fallback dla starszych przeglądarek -->
+                            <source src="sciezka/do/twojego/filmiku.mp4" type="video/mp4">
+                            <!-- Obraz jako ostateczny fallback -->
+                            <img src="/api/placeholder/400/200" alt="Tyczenie obiektów">
+                        </video>
+                        <!-- Przycisk play -->
+                        <button class="video-play-button">
+                            <span>▶</span>
+                        </button>
                     </div>
                     <div class="service-content">
                         <h3 class="service-title">Tyczenie obiektów</h3>
@@ -256,7 +267,7 @@
             <div class="footer-container">
                 <div class="footer-col">
                     <h3>Azymut MT</h3>
-                    <p>
+                    <p><br/>
                         Profesjonalne usługi geodezyjne dla klientów indywidualnych, firm 
                         i instytucji. Działamy na terenie całego województwa od 1999 roku.
                     </p>
@@ -300,6 +311,94 @@
 
     <!-- Back to Top Button -->
     <div class="back-to-top">↑</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funkcja do obsługi filmików z lazy-loadingiem
+            const videoContainers = document.querySelectorAll('.video-container');
+            
+            videoContainers.forEach(container => {
+                const video = container.querySelector('video');
+                const playButton = container.querySelector('.video-play-button');
+                
+                if (!video || !playButton) return;
+                
+                // Sprawdzanie połączenia internetowego
+                const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+                let slowConnection = false;
+                
+                if (connection) {
+                    // Sprawdź czy użytkownik ma wolne połączenie
+                    slowConnection = connection.downlink < 1.5; // mniej niż 1.5 Mbps
+                    
+                    // Dostosuj preload w zależności od prędkości połączenia
+                    if (slowConnection) {
+                        video.preload = 'none'; // Nie ładuj filmu wcześniej przy wolnym połączeniu
+                    } else {
+                        // Przy szybkim połączeniu załaduj film po 2 sekundach
+                        setTimeout(() => {
+                            video.preload = 'auto';
+                            // Preload pierwszych 5 sekund filmu
+                            if (video.readyState === 0) {
+                                video.load();
+                            }
+                        }, 2000);
+                    }
+                }
+                
+                // Obsługa kliknięcia przycisku play
+                playButton.addEventListener('click', () => {
+                    if (video.paused) {
+                        // Uruchom film
+                        video.play()
+                            .then(() => {
+                                container.classList.add('playing');
+                            })
+                            .catch(err => {
+                                console.log('Błąd odtwarzania: ', err);
+                            });
+                    } else {
+                        // Zatrzymaj film
+                        video.pause();
+                        container.classList.remove('playing');
+                    }
+                });
+                
+                // Auto-play gdy film jest w widoku (opcjonalnie)
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        // Jeśli element jest widoczny i mamy szybkie połączenie
+                        if (entry.isIntersecting && !slowConnection) {
+                            // Spróbuj odtworzyć film po 1 sekundzie
+                            setTimeout(() => {
+                                video.play()
+                                    .then(() => {
+                                        container.classList.add('playing');
+                                    })
+                                    .catch(() => {
+                                        // Jeśli auto-play nie zadziała (np. polityka przeglądarki)
+                                        // Nic nie rób, użytkownik może kliknąć przycisk
+                                    });
+                            }, 1000);
+                        } else {
+                            // Zatrzymaj film gdy nie jest widoczny
+                            video.pause();
+                            container.classList.remove('playing');
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                // Obserwuj kontener filmiku
+                observer.observe(container);
+                
+                // Obsługa zakończenia filmu
+                video.addEventListener('ended', () => {
+                    // Zapętl film
+                    video.currentTime = 0;
+                    video.play().catch(() => {});
+                });
+            });
+        });
+        </script>
 
     <script src="script.js"></script>
 </body>

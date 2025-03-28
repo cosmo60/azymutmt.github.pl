@@ -81,35 +81,7 @@ if (filterItems.length > 0 && portfolioItems.length > 0) {
     });
 }
 
-// Contact Form
-const contactForm = document.getElementById('contactForm');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Simple validation
-        let valid = true;
-        const inputs = contactForm.querySelectorAll('.form-control');
-        
-        inputs.forEach(input => {
-            if (!input.value.trim()) {
-                valid = false;
-                input.style.borderColor = 'red';
-            } else {
-                input.style.borderColor = '#ddd';
-            }
-        });
-        
-        if (valid) {
-            // Simulate form submission
-            alert('Dziękujemy za wiadomość! Skontaktujemy się wkrótce.');
-            contactForm.reset();
-        } else {
-            alert('Proszę wypełnić wszystkie pola.');
-        }
-    });
-}
 
 // Testimonial Slider
 const dots = document.querySelectorAll('.dot');
@@ -170,21 +142,4 @@ if (portfolioGalleryItems.length > 0) {
     });
 }
 
-// Newsletter
-const newsletterForm = document.querySelector('.newsletter-form');
-
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const emailInput = this.querySelector('input[type="email"]');
-        
-        if (!emailInput.value.trim()) {
-            alert('Proszę podać adres email.');
-            return;
-        }
-        
-        // Symulacja zapisu do newslettera
-        alert('Dziękujemy za zapisanie się do newslettera!');
-        emailInput.value = '';
-    });
-}
+// Initialize Swiper for the portfolio slider   
